@@ -15,6 +15,18 @@ function main() {
   return SLL
 }
 
+function display(linkedList) {};
+
+function size(linkedList) {};
+
+function isEmpty(linkedList) {};
+
+function findLast(linkedList) {};
+
 module.exports = {
   main,
+  display,
+  size,
+  isEmpty,
+  findLast,
 }

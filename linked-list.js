@@ -27,6 +27,71 @@ class LinkedList {
     }
   }
 
+  insertBefore(item, value) {
+    if(this.head === null) {
+      this.insertFirst(item)
+    }
+    else {
+      let currNode = this.head;
+      let prevNode = this.head;
+      while (currNode.next.value !== value) {
+        if (currNode.next === null) {
+          currNode.next = new _Node(item, null);
+          return;
+        }
+        else {
+          prevNode = currNode;
+          currNode = currNode.next;
+        }
+      }
+      const newNode = new _Node(item, currNode.next)
+      prevNode.next = newNode;
+      return;
+    }
+  }
+
+  insertAfter(item, value) {
+    if(this.head === null) {
+      this.insertFirst(item)
+    }
+    else {
+      let tempNode = this.head;
+      while (tempNode.value !== value) {
+        if (tempNode.next === null) {
+          tempNode.next = new _Node(item, null);
+          return;
+        }
+        else {
+          tempNode = tempNode.next;
+        }
+      }
+      const newNode = new _Node(item, tempNode.next)
+      tempNode.next = newNode;
+      return;
+    }
+  }
+
+  insertAt(item, ind) {
+    if (this.head === null) {
+      this.insertFirst(item)
+    }
+    else {
+      let tempNode = this.head;
+      for (let i = 0; i < (ind - 1); i++) {
+        if (tempNode.next === null) {
+          tempNode.next = new _Node(item, null);
+          return;
+        }
+        else {
+          tempNode = tempNode.next;
+        }
+      }
+      const newNode = new _Node(item, tempNode.next)
+      tempNode.next = newNode;
+      return;
+    }
+  }
+
   find(item) {
     let currNode = this.head;
     if (!this.head) {
